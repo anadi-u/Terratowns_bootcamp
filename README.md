@@ -52,4 +52,40 @@ UBUNTU_CODENAME=jammy
 - If you do not include `#!/bin/bash` in the script, you would receive : `bad interpreter: No such file or directory` error, while trying to execute the script.
 
 
+### Working with env var in Bash
+
+-Environmental variables(env var) are variables that are defined for the current shell and are inherited by any child shells or processes
+
+-To list out all env vars, we can use 'env' command
+-To filter out the env vars, we can use grep, Eg: 
+
+```sh
+$env | grep terraform-beginner-bootcamp
+
+GITPOD_REPO_ROOT=/workspace/terraform-beginner-bootcamp-2023
+PWD=/workspace/terraform-beginner-bootcamp-2023
+THEIA_WORKSPACE_ROOT=/workspace/terraform-beginner-bootcamp-2023
+GITPOD_WORKSPACE_CONTEXT_URL=https://github.com/anadi-u/terraform-beginner-bootcamp-2023/tree/5-project-root-env-var
+GITPOD_REPO_ROOTS=/workspace/terraform-beginner-bootcamp-2023
+GITPOD_WORKSPACE_CONTEXT={"ref":"5-project-root-env-var","refType":"branch","isFile":false,"path":"","title":"anadi-u/terraform-beginner-bootcamp-2023 - 5-project-root-env-var","revision":"0deb78e837f969c562c42f5143ba39b18c96885a","repository":{"cloneUrl":"https://github.com/anadi-u/terraform-beginner-bootcamp-2023.git","host":"github.com","defaultBranch":"main","name":"terraform-beginner-bootcamp-2023","owner":"anadi-u","private":false},"normalizedContextURL":"https://github.com/anadi-u/terraform-beginner-bootcamp-2023/tree/5-project-root-env-var","checkoutLocation":"terraform-beginner-bootcamp-2023"}
+```
+
+- We can set a temporary env var by:
+```sh
+HELLO = 'world' ./bin/print_message
+```
+
+-An env var can also be defined within a script. Eg:
+
+```sh
+#!/bin/bash
+MESSAGE='Hello'
+echo $MESSAGE
+```
+-We can export the env var with executing the script in the terminal. Eg: `export MESSAGE=Hello world`
+
+-To unset an env var, `unset MESSAGE`
+
+-
+
 
