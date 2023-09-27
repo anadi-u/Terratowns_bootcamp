@@ -86,6 +86,44 @@ echo $MESSAGE
 
 -To unset an env var, `unset MESSAGE`
 
--
+### AWS CLI installation
 
+- AWS CLI is installed via `./bin/install_aws_cli` script
+- [Getting started with AWS CLI installation](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+
+- We created an IAM user in AWS in order to use its access keys during AWS CLI installation.
+
+- We can check if AWS credentials are set correctly by using the following command:
+```sh
+aws sts get-caller-identity
+```
+
+- If its successful, you should get an output in JSON format:
+
+```json
+> aws sts get-caller-identity
+{
+    "UserId": "BYTDAUIA3YDL2N4WX7876JJ",
+    "Account": "123456789012",
+    "Arn": "arn:aws:iam::123456789012:user/terraform_beginner_bootcamper"
+}
+```
+
+- [Setting AWS CLI env vars](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
+
+- <font color="red">**Never**</font> put your credentials in the cloud dev environments as hackers can scan the repo and get access to them.
+
+
+- We want to remove the awscliv2.zip along with the aws directory whenever we execute the `install_aws_cli` script. This will not ask us to replace the existing AWS installtion when we run the installtion script.
+
+- Before adding remove commands from the script, this prompt would come up asking for replacing the existing installation:
+
+```sh
+replace aws/THIRD_PARTY_LICENSES? [y]es, [n]o, [A]ll, [N]one, [r]ename:
+```
+- After adding the rm command (remove), we would not get this prompt on running the script again.
+
+- **Quick note:** rm command with `-rf` is used to delete the directories with files inside them. `rmdir` command can only be used to delete directories which are empty.
+
+- The `-r` flag in the `rm` command stands for "recursive." When you use `rm` with the `-r` flag, it tells the command to remove directories and their contents recursively.
 
