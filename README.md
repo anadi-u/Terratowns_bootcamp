@@ -156,6 +156,9 @@ Terraform sources their providers and modules from the Terrform registry which i
     - Runs the plan and sends the plan to be executed by Terraform. It prompts for a *yes* or *no* to proceed further.
     - *To automatically approve the prompt, you can add `--auto-approve` to skip the same.*
 
+- **terraform destroy**
+    - Deletes the resources in your infrastructure.    
+
 ### Terraform lock files
 
 `terraform.lock.hcl` contains locked versioning of the providers and modules that are used in the project.
