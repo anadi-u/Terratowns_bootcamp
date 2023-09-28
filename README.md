@@ -127,3 +127,47 @@ replace aws/THIRD_PARTY_LICENSES? [y]es, [n]o, [A]ll, [N]one, [r]ename:
 
 - The `-r` flag in the `rm` command stands for "recursive." When you use `rm` with the `-r` flag, it tells the command to remove directories and their contents recursively.
 
+## Terraform Basics
+
+### Terraform Registry
+Terraform sources their providers and modules from the Terrform registry which is located at [registry.terraform.io](registry.terraform.io)
+
+- **Providers:**
+ Plugins that define and manage the resources for a specific infrastructure platform or service. Providers serve as the interface between Terraform and the underlying infrastructure, allowing you to create, update, and delete resources on the supported platforms.
+ -Example of a provider: [Random Provider](https://registry.terraform.io/providers/hashicorp/random/latest)
+
+- **Modules:**
+  Enable you to break down your Terraform configuration into smaller, more manageable pieces, making it easier to maintain and scale your infrastructure as code  
+
+### Terraform commands and console
+
+- We can see the list of all commands in Terraform by typing `terraform`
+
+- **terraform init**
+    - Used to initialize a Terraform configuration. It is one of the first commands you should run when working on a new Terraform project.
+    - Downloads and installs any necessary providers and modules that your Terraform configuration depends on. 
+    - Terraform creates a lock file *.terraform.lock.hcl* to record the specific versions of the providers and modules used in your configuration. 
+
+
+- **terraform plan**
+    Used to create a plan(changeset) about the state of the infrastructure and what will be changed.
+
+- **terraform apply**
+    - Runs the plan and sends the plan to be executed by Terraform. It prompts for a *yes* or *no* to proceed further.
+    - *To automatically approve the prompt, you can add `--auto-approve` to skip the same.*
+
+### Terraform lock files
+
+`terraform.lock.hcl` contains locked versioning of the providers and modules that are used in the project.
+Should be committed to the VSC(Version source control) ,i.e, GitHub
+
+### Terraform State files
+
+`terraform.tfstate` contains info about the current state of the infrastructure.
+**Should not be committed to the VSC**, it contains sensitive data.
+
+`terraform.tfstate.backup` is the previous state file
+
+### Terraform directory
+
+Contains binaries of the providers
