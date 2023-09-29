@@ -1,4 +1,11 @@
 terraform {
+  cloud {
+    organization = "Animefox"
+
+    workspaces {
+      name = "terra-house-anime"
+    }
+  }
   required_providers {
     random = {
       source = "hashicorp/random"

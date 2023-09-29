@@ -174,3 +174,35 @@ Should be committed to the VSC(Version source control) ,i.e, GitHub
 ### Terraform directory
 
 Contains binaries of the providers
+
+### Issue with Terraform cloud login with Gitpod
+
+When trying to run `terraform init`, a bash window opens up to generate a token but it does not work as expected. 
+
+Workaround is to manually generate a token in Terraform cloud.\
+
+```
+https://app.terraform.io/app/settings/tokens?source=terraform-login
+
+```
+
+Creating and opening the file manually using the termimnal:
+
+```sh
+touch /home/gitpod/.terraform.d/credentials.tfrc.json
+open /home/gitpod/.terraform.d/credentials.tfrc.json
+```
+
+Provide the following code (replacing your token in the file):
+
+```json
+{
+  "credentials": {
+    "app.terraform.io": {
+      "token": "YOUR_TERRAFORM_CLOUD_TOKEN"
+    }
+  }
+}
+
+```
+
