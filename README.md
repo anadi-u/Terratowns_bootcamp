@@ -205,4 +205,5 @@ Provide the following code (replacing your token in the file):
 }
 
 ```
+We have automated thos workaround with the following script [/bin/generate_tfc_creedentials]
 
