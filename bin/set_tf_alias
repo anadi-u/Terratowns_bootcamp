@@ -19,3 +19,5 @@ else
     echo "$alias_line" >> ~/.bash_profile
     echo "Alias 'tf' added to ~/.bash_profile"
 fi
+
+source ~/.bash_profile
